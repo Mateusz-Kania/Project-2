@@ -40,7 +40,32 @@ module.exports = {
             loader: "css-loader" // translates CSS into CommonJS
           }
         ]
-      }
+      },
+      {
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader', // translates CSS into CommonJS
+        }, {
+          loader: 'less-loader', // compiles Less to CSS
+             options: {
+         modifyVars: {
+              'hack': `true; @import "${(__dirname)}/colors.less";`, // Override with less file
+               },
+         javascriptEnabled: true,
+           },
+        }]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
     ]
   },
   plugins: [

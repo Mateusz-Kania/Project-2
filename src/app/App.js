@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
-import {Button} from "antd";
+import React from 'react';
+import Frame from "./Frame/Frame";
+import {Provider} from 'react-redux';
+import AppStore from './Store/AppStore';
+import LandingPage from './Pages/LandingPage/LandingPage'
 
-class App extends Component {
-  render() {
+
+
+
+class App extends React.Component {
+
+    render() {
+    let store = AppStore();
+
     return (
-      <div>
-        <Button>My React App!</Button>
-      </div>
+        <Provider store={store}>
+        <Frame>
+            <LandingPage />
+        </Frame>
+        </Provider>
     );
   }
 }
