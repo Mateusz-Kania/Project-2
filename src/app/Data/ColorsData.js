@@ -1,5 +1,8 @@
 export default {
+    backgroundDark:'#001529',
     backgroundLight:"#ffffff",
-    primaryColor:"#1890ff"
+    background:'#f0f2f5',
+    primaryColor:"#1890ff",
+
 
 }
