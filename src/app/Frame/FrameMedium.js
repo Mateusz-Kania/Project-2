@@ -1,6 +1,6 @@
 import React from 'react';
 import {Affix, Col, Layout, Row} from "antd";
-const { Header, Content, Footer } = Layout;
+const {  Content, Footer } = Layout;
 import AboutUsLinksData from "../Data/AboutUsLinksData";
 import categoriesData from "../Data/CategoriesData";
 import LinkCollection from "./FrameComponents/LinkCollection";
@@ -12,7 +12,6 @@ import WebsiteFooter from "./FrameComponents/WebsiteFooter";
 import BasketIcon from "./FrameComponents/Icons/BasketIcon"
 import MenuVertical from "./FrameComponents/Icons/MenuVertical"
 import AccountIcon from "./FrameComponents/Icons/AccountIcon"
-import MenuHorizontal from "./FrameComponents/MenuHorizontal";
 import AffixMenu from "./AffixMenu/AffixMenuMedium";
 
 function FrameMedium(props){

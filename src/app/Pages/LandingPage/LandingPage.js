@@ -1,10 +1,9 @@
 import React from 'react';
-import LPCarouser from './LPCarousel'
-import TextContainer from './TextContainer'
-import LandingPageText from '../../Data/LandingPageText'
+import LPCarouser from './LPCarousel3'
+import LPTiles from './LPTiles'
+//import LandingPageText from '../../Data/LandingPageText'
 
-class LandingPage extends React.Component{
-    render() {
+function LandingPage(props){
 
 
         let even=true;
@@ -20,16 +19,16 @@ class LandingPage extends React.Component{
             );
         }
 
-
-
         return(
             <div>
-          <LPCarouser />
-                {LandingPageText.map(mapArticle)}
+          <LPCarouser height={"600px"} />
+          <LPTiles />
             </div>
 
         );
-    }
+
 }
+
+
 
 export default LandingPage;

@@ -47,7 +47,7 @@ function FrameBig(props){
 
     if(displaySize==='desktop') {
         fixWidth = {
-            width: '1100px',
+            width: '1150px',
             marginLeft: 'auto',
             marginRight: 'auto',
         };

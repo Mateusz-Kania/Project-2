@@ -16,6 +16,10 @@ export default function(action){
 
         alert(`Naciśnięto: ${action.payload.className}. ID promocji: ${action.payload.idValue}`)
     }
+    else if(action.payload.className==="PRODUCT"){
+
+        alert(`Naciśnięto: ${action.payload.className}. Slug produktu: ${action.payload.productSlug}`)
+    }
     else{
         alert(`Naciśnięto: ${action.payload.className}`);
     }

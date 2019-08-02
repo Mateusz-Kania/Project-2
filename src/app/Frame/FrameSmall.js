@@ -81,7 +81,7 @@ function FrameSmall(props){
             return(
                 <Row style={headerDivStyle} type="flex" justify="start" align="middle">
                     <Col style={centeringDiv}>
-                <Search width={searchWidth} size="medium" />
+                <Search width={searchWidth} size="default" />
                     </Col>
                 </Row>
 

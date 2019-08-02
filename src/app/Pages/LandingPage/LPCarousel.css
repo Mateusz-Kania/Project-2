@@ -1,28 +1,36 @@
-.ant-carousel .slick-slide {
-    text-align: center;
+.swiper-container {
+    width: 100%;
     height: 600px;
-    line-height: 400px;
-    background: #364d79;
-    overflow: hidden;
+    cursor:pointer;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
 }
 
-.ant-carousel .slick-slide h3 {
-    color: #fff;
+.swiper-pagination-bullet{
+    height: 15px;
+    width: 15px;
 }
 
-.ant-carousel .slick-dots{
-    height: 9px;
-}
-.ant-carousel .slick-dots li{
-    margin-left: 6px;
-    margin-right: 6px;
+.swiper-button-next{
+
 }
 
-.ant-carousel .slick-dots li button{
-    height: 9px;
-    width: 48px;
- }
+.swiper-button-prev{
 
-.ant-carousel .slick-dots li.slick-active button{
-    width: 72px;
 }

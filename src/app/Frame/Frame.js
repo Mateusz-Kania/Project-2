@@ -6,7 +6,7 @@ import FrameSmall from './FrameSmall';
 
 function Frame(props) {
 
-    let {displaySize,scrolledMenu}= props;
+    let {displaySize}= props;
 
 
 
@@ -32,7 +32,6 @@ function Frame(props) {
 const mapStateToProps= state=>(
     {
         displaySize:state.displaySize,
-        scrolledMenu:state.scrolledMenu,
     }
 );
 

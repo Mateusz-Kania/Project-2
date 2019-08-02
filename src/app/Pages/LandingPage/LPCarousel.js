@@ -1,76 +1,87 @@
+import Swiper from 'swiper';
 import React from 'react';
-import { Carousel } from 'antd';
-import './LPCarousel.css'
-import carouselItems from "../../Data/LandingPageCarousel"
-class LandingPage extends React.Component{
-    render() {
+import 'swiper/dist/css/swiper.css';
+import './LPCarousel.css';
+import carouselItems from "../../Data/LandingPageCarousel";
+import LPCarouselItem from './LPCarouselItem';
+import colorData from '../../Data/ColorsData'
+
+function LPCarousel(props) {
+
+    let {height} = props;
+    let [activeIndex,setActiveIndex] = React.useState(1);
+    let swiper;
+
+    let elementNumber = carouselItems.length;
+
+    let mappedIndex;
+
+    function startContainerAnimation(){
+        //todo
+    }
 
 
 
-        let divStyle={
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            position: 'relative',
-            height:'600px'
 
-        };
+        React.useEffect(()=> {
+            swiper = new Swiper('.swiper-container',{
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
 
-        let imgStyle={
-            objectFit: 'cover',
-            width:'1920px',
-            heigth:'400px',
-        };
+                onSlideChangeEnd: function (s) {
+                    s.fixLoop();
+                },
+               loop: true,
 
-        function mapCarouselItems(carouselItem){
-            let currentDivStyle={
-              ...divStyle,
-                backgroundImage:`url(${carouselItem.image})`,
+
+
+               // autoplay: {
+               //     delay: 8000,
+               //     disableOnInteraction: false,
+               // },
+
+
+            });
+
+                swiper.on('transitionEnd'	, startContainerAnimation);
+            return () =>{
+                swiper.off('transitionEnd'	);
             };
+        }
+        ,[]);
 
+
+        function createCarouselItems(){
             return(
-             <div>
-                 <div style={currentDivStyle}></div>
-             </div>
+                <div className="swiper-wrapper">
+                    {carouselItems.map(mapCarouselItems)}
+                </div>
+
             );
         }
 
 
-
-
-
-
-
+        function mapCarouselItems(carouselItem){
+            return (
+                <div className="swiper-slide" key={carouselItem.id}>
+                    <LPCarouselItem active={true} color={colorData.backgroundLight} colorOnHover={colorData.primaryColor} CarouselItemData={carouselItem}/>
+                </div>
+            );
+        }
 
         return(
-            <Carousel autoplay={true}>
-                {carouselItems.map(mapCarouselItems)}
-            </Carousel>
+        <div className="swiper-container">
+                {
+                    createCarouselItems()
+                }
+            <div className="swiper-pagination"></div>
+        </div>
 
 
         );
-    }
 }
 
-export default LandingPage;
+export default LPCarousel;
 
-/*
-Przyciski domyślnie:
-.ant-carousel .slick-dots{
-    height: 3px;
-}
-.ant-carousel .slick-dots li{
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-.ant-carousel .slick-dots li button{
-    height: 3px;
-    width: 16px;
- }
-
-.ant-carousel .slick-dots li.slick-active button{
-    width: 24px;
-}
-
- */

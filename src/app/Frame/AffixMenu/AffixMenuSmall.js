@@ -27,7 +27,7 @@ function AffixMenuSmall(props){
         backgroundColor:colorData.backgroundDark,
         color:"white",
         margin:'auto',
-        height:'48px',
+        height:'64px',
     };
 
 
@@ -46,22 +46,19 @@ function AffixMenuSmall(props){
 
     return (
         <Row style={headerDivStyle} type="flex" justify="start" align="middle">
-            <Col style={centeringDiv} span={14}>
+            <Col style={centeringDiv} span={8}>
                 <div style={logoDiv}>LOGO
                 </div>
 
-                <div style={changingTextDiv}>
-                    <ChangingText shortText size="small" changingTextData={changingTextData} />
-                </div>
 
             </Col>
-            <Col style={alignRightDiv} span={10}>
+            <Col style={alignRightDiv} span={16}>
                 <span className="iconsLight">
-                <IconSet notMargin={true}>
-                    <SearchIcon size="small" />
-                    <BasketIcon size="small" />
-                    <AccountIcon size="small" />
-                    <MenuVertical size="small" categoriesData={categoriesData}/>
+                <IconSet>
+                    <SearchIcon size="medium" />
+                    <BasketIcon size="medium" />
+                    <AccountIcon size="medium" />
+                    <MenuVertical size="medium" categoriesData={categoriesData}/>
                 </IconSet>
                 </span>
             </Col>
