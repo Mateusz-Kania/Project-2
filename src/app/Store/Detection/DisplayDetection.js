@@ -40,12 +40,12 @@ class DisplayDetection{
             {
                 name: "tablet",
                 minWidth: '960px',
-                maxWidth: '1149px',
+                maxWidth: '1199px',
                 scrolledMenuBreakpoint: 162
             },
             {
                 name: "desktop",
-                minWidth: '1150px',
+                minWidth: '1200px',
                 scrolledMenuBreakpoint: 162
             },
 

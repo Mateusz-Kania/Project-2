@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Menu, Dropdown, Icon } from 'antd';
 import DefaultIconStyle from './DefaultIconStyle'
+import HoverAnimation from '../../../Animations/HoverAnimation'
 
 function MenuVertical(props){
 
@@ -27,7 +28,7 @@ function MenuVertical(props){
 
 
         const menu = (
-            <Menu>
+            <Menu theme="dark">
                 {categoriesData.map(mapCategories)}
             </Menu>
         );

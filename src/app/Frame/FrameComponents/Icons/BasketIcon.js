@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Icon } from 'antd';
+import {Dropdown, Icon} from 'antd';
 import DefaultIconStyle from './DefaultIconStyle'
 
 function BasketIcon(props){

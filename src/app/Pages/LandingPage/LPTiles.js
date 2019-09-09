@@ -4,19 +4,22 @@ import LPTilesItem from './LPTilesItem';
 import {Col,  Row} from "antd";
 import {pageMaxWidth} from "../../Frame/PageWidthInfo";
 import {connect} from "react-redux";
+import colorsData from '../../Data/ColorsData'
 
 function LPTiles(props) {
 
     let {displaySize} = props;
 
     let setWidthStyle={
-
+        backgroundColor:colorsData.backgroundLight,
+        padding:'5px',
     };
     let itemSpan;
 
     if(displaySize==="desktop"){
 
         setWidthStyle = {
+            ...setWidthStyle,
             width: pageMaxWidth,
             marginLeft: 'auto',
             marginRight: 'auto',

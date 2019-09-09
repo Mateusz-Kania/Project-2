@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {useSpring, animated} from 'react-spring'
 
 function ProductCard(props) {
 
@@ -8,6 +8,7 @@ function ProductCard(props) {
     let widthInt = parseInt(width);
     let borderInt = parseInt(imageBorder);
     let imageWidth = (widthInt-(borderInt*2)).toString() +'px';
+    let colorProps = useSpring({backgroundColor:hovered ? colorOnHover : color});
 
     let polaroidStyle={
         width:width,
@@ -32,6 +33,7 @@ function ProductCard(props) {
         height:imageHeight,
     };
 
+    /*
     if(hovered){
         polaroidStyle={
             ...polaroidStyle,
@@ -45,17 +47,28 @@ function ProductCard(props) {
             backgroundColor:color,
         }
     }
+     */
+
+    function mouseEnterHandler(){
+        setHovered(true);
+    }
+
+    function mouseLeaveHandler(){
+        setHovered(false);
+
+    }
+
 
     return (
-        <div style={polaroidStyle}
-            onMouseEnter={()=>{setHovered(true)}}
-            onMouseLeave={()=>{setHovered(false)}}
+        <animated.div style={{...polaroidStyle,...colorProps}}
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
         >
             <div style={imageDivStyle} />
             <div style={containerStyle}>
                 {product.price}
             </div>
-        </div>
+        </animated.div>
     );
 
 }

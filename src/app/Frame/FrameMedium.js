@@ -12,7 +12,8 @@ import WebsiteFooter from "./FrameComponents/WebsiteFooter";
 import BasketIcon from "./FrameComponents/Icons/BasketIcon"
 import MenuVertical from "./FrameComponents/Icons/MenuVertical"
 import AccountIcon from "./FrameComponents/Icons/AccountIcon"
-import AffixMenu from "./AffixMenu/AffixMenuMedium";
+import AffixMenuMedium from "./AffixMenu/AffixMenuMedium";
+import HoverAnimation from "../Animations/HoverAnimation";
 
 function FrameMedium(props){
 
@@ -62,7 +63,7 @@ function FrameMedium(props){
     function renderMenu(){
         if(scrolledMenu){
             return(
-                <AffixMenu/>
+                <AffixMenuMedium/>
             );
         }
         else{
@@ -86,9 +87,15 @@ function FrameMedium(props){
                     </Col>
                     <Col>
                         <IconCollection>
-                            <BasketIcon size={"medium"}/>
-                            <AccountIcon size={"medium"}/>
-                            <MenuVertical categoriesData={categoriesData} size={"medium"}/>
+                            <HoverAnimation color={colorData.backgroundDark} colorOnHover={colorData.primaryColor}>
+                                <BasketIcon size={"medium"}/>
+                            </HoverAnimation>
+                            <HoverAnimation color={colorData.backgroundDark} colorOnHover={colorData.primaryColor}>
+                                <AccountIcon size={"medium"}/>
+                            </HoverAnimation>
+                            <HoverAnimation color={colorData.backgroundDark} colorOnHover={colorData.primaryColor}>
+                                <MenuVertical categoriesData={categoriesData} size={"medium"}/>
+                            </HoverAnimation>
                         </IconCollection>
                     </Col>
                 </Row>
@@ -98,7 +105,7 @@ function FrameMedium(props){
                     <img style={styleLogoImg} alt={"Alt logo sklepiku"}  />
                 </Col>
             </Row>
-            <Affix offsetTop={0}>
+            <Affix style={{zIndex:1000}}  offsetTop={0}>
                 {renderMenu()}
             </Affix>
             <Content>

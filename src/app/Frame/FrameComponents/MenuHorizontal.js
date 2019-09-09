@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Dropdown, Menu} from 'antd';
 import {Row, Col} from 'antd';
+import {useSpring, animated} from 'react-spring';
+import colorsData from '../../Data/ColorsData'
 
 function MenuHorizontal(props) {
 
@@ -11,22 +13,20 @@ function MenuHorizontal(props) {
 
         let colSpan = 24/categoryData.length;
 
+        let color=colorsData.backgroundDark;
+        let colorHovered=colorsData.primaryColor;
+
+
         let style={
             color:'white',
             textAlign:'center',
             fontSize:'25px',
         };
 
-        let styleHovered={
-            backgroundColor:'#1890ff',
+
+        let categoryItemStyle={
             cursor:"pointer"
         };
-
-        let styleNotHovered={
-            cursor:"pointer"
-        };
-
-
 
         function handleCategoryClick(id){
 
@@ -39,20 +39,23 @@ function MenuHorizontal(props) {
 
 
     function mapCategories(category){
-            return(
+        let colorProps = useSpring({backgroundColor:hover===category.id ? colorHovered : color});
+
+
+        return(
                 <Col span={colSpan} key={category.id}>
                     <Dropdown overlay={
-                        <Menu>
+                        <Menu theme="dark">
                             {
                                 category.subcategories.map(mapSubcategories)}
                         </Menu>
                     } trigger={['hover']}>
-                        <div
+                        <animated.div
                             onClick={(event)=>handleCategoryClick(category.id)}
                             onMouseEnter={(event)=>setHover(category.id)}
-                            style={hover===category.id ? styleHovered : styleNotHovered}
+                            style={{...categoryItemStyle,...colorProps}}
                             key={category.id}
-                        >{category.text}</div>
+                        >{category.text}</animated.div>
                     </Dropdown>
                 </Col>
             );

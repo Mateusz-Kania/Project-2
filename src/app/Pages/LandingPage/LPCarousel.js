@@ -1,86 +1,83 @@
-import Swiper from 'swiper';
 import React from 'react';
-import 'swiper/dist/css/swiper.css';
 import './LPCarousel.css';
 import carouselItems from "../../Data/LandingPageCarousel";
 import LPCarouselItem from './LPCarouselItem';
 import colorData from '../../Data/ColorsData'
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+
 function LPCarousel(props) {
 
     let {height} = props;
-    let [activeIndex,setActiveIndex] = React.useState(1);
-    let swiper;
+    let [activeIndex,setActiveIndex] = React.useState(0);
 
     let elementNumber = carouselItems.length;
 
     let mappedIndex;
 
-    function startContainerAnimation(){
-        //todo
+
+    function handleBeforeChange(){
+        setActiveIndex(-1);
+    }
+
+    function handleAfterChange(index){
+        setActiveIndex(index);
     }
 
 
+    let setHeight={
+        height:height,
+    };
+
+    let settings = {
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 8000,
+        speed: 700,
+        dots: false,
+        pauseOnHover:false,
+    };
 
 
-        React.useEffect(()=> {
-            swiper = new Swiper('.swiper-container',{
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-
-                onSlideChangeEnd: function (s) {
-                    s.fixLoop();
-                },
-               loop: true,
-
-
-
-               // autoplay: {
-               //     delay: 8000,
-               //     disableOnInteraction: false,
-               // },
-
-
-            });
-
-                swiper.on('transitionEnd'	, startContainerAnimation);
-            return () =>{
-                swiper.off('transitionEnd'	);
-            };
-        }
-        ,[]);
-
-
-        function createCarouselItems(){
-            return(
-                <div className="swiper-wrapper">
-                    {carouselItems.map(mapCarouselItems)}
+    function mapCarouselItems(carouselItem){
+        mappedIndex++;
+        return (
+                <div key={carouselItem.id} style={setHeight}>
+                <LPCarouselItem active={mappedIndex==activeIndex ? true : false} color={colorData.backgroundLight} colorOnHover={colorData.primaryColor} CarouselItemData={carouselItem}/>
                 </div>
+        );
+    }
 
-            );
-        }
-
-
-        function mapCarouselItems(carouselItem){
+    function createSlides(){
+            mappedIndex=-1;
             return (
-                <div className="swiper-slide" key={carouselItem.id}>
-                    <LPCarouselItem active={true} color={colorData.backgroundLight} colorOnHover={colorData.primaryColor} CarouselItemData={carouselItem}/>
-                </div>
+                carouselItems.map(mapCarouselItems)
             );
-        }
+    }
 
-        return(
-        <div className="swiper-container">
-                {
-                    createCarouselItems()
-                }
-            <div className="swiper-pagination"></div>
+    let xd={
+        height:'600px'
+    };
+
+    return(
+        <div style={xd}>
+        <Slider
+            beforeChange={()=>{handleBeforeChange()}}
+            afterChange={(index)=>{handleAfterChange(index)}}
+                {...settings}>
+            {
+                createSlides()
+            }
+        </Slider>
         </div>
 
-
-        );
+    );
 }
 
 export default LPCarousel;

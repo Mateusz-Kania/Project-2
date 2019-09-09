@@ -5,7 +5,7 @@ import DefaultIconStyle from './DefaultIconStyle'
 
 function AccountIcon(props){
 
-    let {size}= props;
+    let {size,color,colorOnHover}= props;
 
     let iconStyle=DefaultIconStyle(size);
 

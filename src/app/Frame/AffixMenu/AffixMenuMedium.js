@@ -10,6 +10,7 @@ import MenuVertical from "../FrameComponents/Icons/MenuVertical";
 import categoriesData from "../../Data/CategoriesData";
 import colorData from "../../Data/ColorsData";
 import SearchIcon from "../FrameComponents/Icons/SearchIcon";
+import HoverAnimation from "../../Animations/HoverAnimation";
 
 function AffixMenuMedium(props){
 
@@ -28,6 +29,7 @@ function AffixMenuMedium(props){
         color:"white",
         margin:'auto',
         height:'64px',
+        zIndex:100
     };
 
 
@@ -58,10 +60,18 @@ function AffixMenuMedium(props){
                 <Col style={alignRightDiv} span={9}>
                 <span className="iconsLight">
                 <IconSet>
-                    <SearchIcon size="medium" />
-                    <BasketIcon size="medium" />
-                    <AccountIcon size="medium" />
-                    <MenuVertical size="medium" categoriesData={categoriesData}/>
+                            <HoverAnimation color={colorData.backgroundLight} colorOnHover={colorData.primaryColor}>
+                                <SearchIcon size="medium" />
+                            </HoverAnimation>
+                            <HoverAnimation color={colorData.backgroundLight} colorOnHover={colorData.primaryColor}>
+                                <BasketIcon size={"medium"}/>
+                            </HoverAnimation>
+                            <HoverAnimation color={colorData.backgroundLight} colorOnHover={colorData.primaryColor}>
+                                <AccountIcon size={"medium"}/>
+                            </HoverAnimation>
+                            <HoverAnimation color={colorData.backgroundLight} colorOnHover={colorData.primaryColor}>
+                                <MenuVertical categoriesData={categoriesData} size={"medium"}/>
+                            </HoverAnimation>
                 </IconSet>
                 </span>
                 </Col>

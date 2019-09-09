@@ -7,14 +7,25 @@ import displayChange from './DisplayChange'
 import DisplayDetection from './Detection/DisplayDetection';
 import scrollChange from './ScrollChange'
 
+import productData from "../Data/ExampleData/ProductData"
+import navigationData from "../Data/ExampleData/NavigationData"
+import seeAlsoData from "../Data/ExampleData/SeeAlsoData"
+
 import {isMobile} from 'react-device-detect';
 
 export default function(props) {
     let displayDetection = new DisplayDetection();
 
+    let examplePageInfo={
+        productData,
+        navigationData,
+        seeAlsoData
+    };
+
     const initialState = {
         ...displayDetection.getCurrentStatus(),
         basketItemsCount:11,
+        ...examplePageInfo,
     };
 
 
@@ -35,7 +46,7 @@ export default function(props) {
         }
     }
 
-    const store = createStore(reducer, devToolsEnhancer());
+    const store = createStore(reducer);
 
     displayDetection.setStore(store);
     displayDetection.setListeners();

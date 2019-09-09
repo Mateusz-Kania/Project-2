@@ -1,5 +1,5 @@
 import React from 'react';
-import LPCarouser from './LPCarousel3'
+import LPCarouser from './LPCarouselMobile'
 import LPTiles from './LPTiles'
 //import LandingPageText from '../../Data/LandingPageText'
 

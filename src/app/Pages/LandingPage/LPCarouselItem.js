@@ -7,17 +7,19 @@ import {useSpring, animated} from 'react-spring'
 function LPCarouselItem(props) {
 
     let {CarouselItemData,colorOnHover,color,active,displaySize} = props;
-    let [hovered,setHovered] = React.useState(false);
 
     const animationProps = useSpring({opacity: active ? 1 : 0});
 
+    let [textHovered,setTextHovered] = React.useState(false);
+    let colorProps = useSpring({color:textHovered ? colorOnHover : color});
+
     let imageDivStyle={
+        width:'100%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         position: 'relative',
         height:'100%',
-        width:'100%',
         backgroundImage:`url(${CarouselItemData.image})`,
         cursor:'pointer',
 
@@ -53,18 +55,6 @@ function LPCarouselItem(props) {
         marginBottom:'30px',
     };
 
-    if(hovered){
-        textColStyle={
-          ...textColStyle,
-            color:colorOnHover
-        };
-    }
-    else{
-        textColStyle={
-            ...textColStyle,
-            color:color,
-        }
-    }
 
 
     let headerStyle={
@@ -155,14 +145,15 @@ function LPCarouselItem(props) {
                 <animated.div style={{...divContentContainerStyle,...animationProps}}>
                     <Row type="flex" align="bottom">
                         <Col style={textColStyle} span={spanSize}>
-                            <span
+                            <animated.span
+                                style={{...colorProps}}
                                 onClick={()=>handleTextClick()}
-                                onMouseEnter={()=>{setHovered(true)}}
-                                onMouseLeave={()=>{setHovered(false)}}
+                                onMouseEnter={()=>{setTextHovered(true)}}
+                                onMouseLeave={()=>{setTextHovered(false)}}
                             >
                             <span style={headerStyle}>{CarouselItemData.h1}</span>
                             <p style={textStyle}>{CarouselItemData.text}</p>
-                            </span>
+                            </animated.span>
                         </Col>
                         <Col span={spanSize}>
                             <div style={cardsDivStyle}>

@@ -12,16 +12,19 @@ import MenuHorizontal from "./FrameComponents/MenuHorizontal";
 import WebsiteFooter from "./FrameComponents/WebsiteFooter";
 import BasketIcon from "./FrameComponents/Icons/BasketIcon";
 import AffixMenu from "./AffixMenu/AffixMenuBig";
+import HoverAnimation from '../Animations/HoverAnimation'
 
 function FrameBig(props){
 
     let accountLinks=   [
             {
+                id:1,
             class: "LINK_LOGIN",
             page:"LOGIN",
             text: "Zaloguj się",
         },
         {
+            id:2,
             class: "LINK_REGISTER",
             page:"REGISTER",
             text: "Zarejestruj się",
@@ -116,14 +119,16 @@ function FrameBig(props){
               <Col span={7}>
                   <div style={midBasketDivStyle}>
                     <IconSet>
+                        <HoverAnimation color={colorData.backgroundDark} colorOnHover={colorData.primaryColor}>
                         <BasketIcon size={"big"}/>
+                        </HoverAnimation>
                     </IconSet>
                   </div>
               </Col>
 
           </Row>
           </div>
-          <Affix offsetTop={0}>
+          <Affix style={{zIndex:1000}} offsetTop={0}>
               {renderMenu()}
           </Affix>
           <Content>

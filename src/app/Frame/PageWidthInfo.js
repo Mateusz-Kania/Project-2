@@ -1,1 +1,1 @@
-export let pageMaxWidth='1150px';
+export let pageMaxWidth='1200px';

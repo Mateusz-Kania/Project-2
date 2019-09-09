@@ -10,6 +10,7 @@ import AccountIcon from "../FrameComponents/Icons/AccountIcon";
 import MenuVertical from "../FrameComponents/Icons/MenuVertical";
 import categoriesData from "../../Data/CategoriesData";
 import colorData from "../../Data/ColorsData";
+import HoverAnimation from "../../Animations/HoverAnimation";
 
 function AffixMenuBig(props){
 
@@ -17,7 +18,8 @@ function AffixMenuBig(props){
 
     let fullWidthStyle={
         backgroundColor:colorData.backgroundDark,
-        color:"white"
+        color:"white",
+        zIndex:100
 
     };
 
@@ -74,9 +76,15 @@ function AffixMenuBig(props){
             <Col style={alignRightDiv} span={5}>
                 <span className="iconsLight">
                 <IconSet>
-                    <BasketIcon size="medium" />
-                    <AccountIcon size="medium" />
-                    <MenuVertical size="medium" categoriesData={categoriesData}/>
+                            <HoverAnimation color={colorData.backgroundLight} colorOnHover={colorData.primaryColor}>
+                                <BasketIcon size={"medium"}/>
+                            </HoverAnimation>
+                            <HoverAnimation color={colorData.backgroundLight} colorOnHover={colorData.primaryColor}>
+                                <AccountIcon size={"medium"}/>
+                            </HoverAnimation>
+                            <HoverAnimation color={colorData.backgroundLight} colorOnHover={colorData.primaryColor}>
+                                <MenuVertical categoriesData={categoriesData} size={"medium"}/>
+                            </HoverAnimation>
                 </IconSet>
                 </span>
             </Col>
