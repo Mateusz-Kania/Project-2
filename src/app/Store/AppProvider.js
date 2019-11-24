@@ -10,6 +10,10 @@ import scrollChange from './ScrollChange'
 import productData from "../Data/ExampleData/ProductData"
 import navigationData from "../Data/ExampleData/NavigationData"
 import seeAlsoData from "../Data/ExampleData/SeeAlsoData"
+import categoryData from "../Data/ExampleData/CategoryData"
+import foundProducts from "../Data/ExampleData/FoundProducts"
+import activeFiltersData from "../Data/ExampleData/ActiveFiltersData"
+import observedItems from "../Data/ExampleData/ObservedItems"
 
 import {isMobile} from 'react-device-detect';
 
@@ -19,7 +23,11 @@ export default function(props) {
     let examplePageInfo={
         productData,
         navigationData,
-        seeAlsoData
+        seeAlsoData,
+        categoryData,
+        foundProducts,
+        activeFiltersData,
+        observedItems
     };
 
     const initialState = {

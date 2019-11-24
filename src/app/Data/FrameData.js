@@ -1,1 +1,1 @@
-export let searchText='Znajdź na stronie';
+export let searchText='Wyszukaj';

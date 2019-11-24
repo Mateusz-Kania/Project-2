@@ -1,6 +1,6 @@
 import React from 'react'
 import {animated, useSpring} from "react-spring";
-import colorsData from "../Data/ColorsData";
+import colorsData from "../Data/Static/ColorsData";
 
 function BorderedOnHoverOrActive(props){
 

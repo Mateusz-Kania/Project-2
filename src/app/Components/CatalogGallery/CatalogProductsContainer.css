@@ -1,0 +1,3 @@
+.pageInputNumber > .ant-input-number-handler-wrap{
+    display:none !important;
+}

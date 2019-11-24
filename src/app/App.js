@@ -1,9 +1,10 @@
 import React from 'react';
-import Frame from "./Frame/Frame";
 import AppProvider from './Store/AppProvider';
-import LandingPage from './Pages/LandingPage/LandingPage'
-import ProductPage from './Pages/Product/ProductPage'
-import CatalogPage from "./Pages/Catalog/CatalogPage";
+import LandingPage from './Pages/LandingPage'
+import ProductPage from './Pages/ProductPage'
+import CatalogPage from "./Pages/CatalogPage";
+import UserPage from "./Pages/UserPage";
+import ColorComponent from "./Components/Others/Cards/ColorComponent";
 
 
 
@@ -16,9 +17,7 @@ function App(props) {
 
     return (
         <AppProvider>
-        <Frame>
             <CatalogPage/>
-        </Frame>
         </AppProvider>
     );
 }

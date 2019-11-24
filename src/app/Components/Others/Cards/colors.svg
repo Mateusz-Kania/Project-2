@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="gaussian-blur-filter-0" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="gaussian-blur 1 5">
+      <feGaussianBlur stdDeviation="5 5" />
+    </filter>
+  </defs>
+  <path style="fill: rgb(255, 0, 255);" transform="matrix(0.548416, 0.000001, -0.000001, 0.548416, -8.561591, -79.307167)" d="M 81.957413246 443.042586754 A 164.109 164.109 0 1 1 314.042586754 210.957413246 L 198 327 Z" bx:shape="pie 198 327 0 164.109 225 45 1@ae66b4e9" bx:origin="0.585629 0.585625"/>
+  <path style="fill: rgb(0, 255, 0);" transform="matrix(-0.548416, -0.000001, 0.000001, -0.548416, 208.537872, 279.282837)" d="M 81.957413246 443.042586754 A 164.109 164.109 0 1 1 314.042586754 210.957413246 L 198 327 Z" bx:shape="pie 198 327 0 164.109 225 45 1@ae66b4e9" bx:origin="0.585629 0.585625"/>
+  <path d="M 518.709 653.331 m -90 0 a 90 90 0 1 0 180 0 a 90 90 0 1 0 -180 0 Z M 518.709 653.331 m -85 0 a 85 85 0 0 1 170 0 a 85 85 0 0 1 -170 0 Z" style="filter: none;" transform="matrix(-0.526355, 0.850265, -0.850265, -0.526355, 928.529603, 2.843733)" bx:shape="ring 518.709 653.331 85 85 90 90 1@e193b4cc"/>
+  <path d="M 512.651 519.732 m -93 0 a 93 93 0 1 0 186 0 a 93 93 0 1 0 -186 0 Z M 512.651 519.732 m -85 0 a 85 85 0 0 1 170 0 a 85 85 0 0 1 -170 0 Z" style="filter: url(#gaussian-blur-filter-0);" transform="matrix(-0.607604, 0.79424, -0.79424, -0.607604, 824.281314, 8.623359)" bx:shape="ring 512.651 519.732 85 85 93 93 1@d7efee87"/>
+</svg>

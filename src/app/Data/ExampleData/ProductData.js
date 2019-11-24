@@ -2,11 +2,35 @@ export default
 {
     slug:'product-1',
     price:29.99,
+    oldPrice:39.99,
     observed:false,
     name:'Produkt Jeden',
     company:{
       name:'Firma 123',
       slug:'firma-123'
+    },
+    variants: {
+        "rozmiar": {
+            name: 'Rozmiar',
+            options: [
+                {
+                    name: 'S',
+                    slug: 's',
+                },
+                {
+                    name: 'M',
+                    slug: 'm',
+                },
+                {
+                    name: 'L',
+                    slug: 'l',
+                },
+                {
+                    name: 'XL',
+                    slug: 'xl',
+                },
+            ]
+        }
     },
     versions:[
         {

@@ -1,4 +1,6 @@
-import {isMobile} from 'react-device-detect';
+//import {isMobile} from 'react-device-detect';
+
+let isMobile=false;
 
 class DisplayDetection{
     constructor() {
@@ -141,7 +143,6 @@ class DisplayDetection{
 
     getCurrentStatus(){
         let currentDisplaySize='';
-        let currentScrolledMenu=false;
         let self = this;
 
         function checkIfItsCurrent(breakpoint){
@@ -161,12 +162,10 @@ class DisplayDetection{
             this.displayBreakpointsDataDesktop.map(checkIfItsCurrent);
         }
 
-        this.scrolledMenu=currentScrolledMenu;
 
 
         return {
             displaySize:currentDisplaySize,
-            scrolledMenu:currentScrolledMenu,
         }
     }
 

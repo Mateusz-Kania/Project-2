@@ -1,0 +1,22 @@
+.cb-smaller-panel > .ant-collapse-header{
+    padding-top:8px !important;
+    padding-bottom:8px !important;
+    background-color: #bae7ff !important;
+    border-width: 1px !important;
+    border-radius: 4px !important;
+    box-shadow:0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cb-smaller-panel > .ant-collapse-content> .ant-collapse-content-box{
+    padding-top:4px !important;
+    padding-bottom:10px !important;
+    padding-left:10px !important;
+    padding-right:10px !important;
+    background-color: #e6f7ff !important;
+    border-radius: 4px;
+}
+
+.cb-smaller-panel {
+
+
+}
